@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PROJECT KAUTILYA</title>
+
+<style>
+body{
+    margin:0;
+    background:#000;
+    color:#00ff00;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    font-family:Arial;
+    text-align:center;
+}
+
+h1{
+    font-size:35px;
+}
+
+#countdown{
+    font-size:60px;
+    margin-top:20px;
+    font-weight:bold;
+}
+
+p{
+    color:white;
+    font-size:22px;
+}
+</style>
+
+</head>
+<body>
+
+<div>
+<h1>🦅 PROJECT KAUTILYA</h1>
+
+<div id="countdown"></div>
+
+<p>🎯 SSC CHSL 2027</p>
+
+</div>
+
+<script>
+
+const target = new Date("2027-03-04T00:00:00").getTime();
+
+function updateCountdown(){
+
+let now = new Date().getTime();
+
+let diff = target - now;
+
+if(diff<=0){
+document.getElementById("countdown").innerHTML="TIME UP!";
+return;
+}
+
+let hours=Math.floor(diff/(1000*60*60));
+let minutes=Math.floor((diff%(1000*60*60))/(1000*60));
+let seconds=Math.floor((diff%(1000*60))/1000);
+
+document.getElementById("countdown").innerHTML=
+hours+"h : "+minutes+"m : "+seconds+"s";
+
+}
+
+updateCountdown();
+
+setInterval(updateCountdown,1000);
+
+</script>
+
+</body>
+</html>
